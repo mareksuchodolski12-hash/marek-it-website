@@ -1,0 +1,26 @@
+{
+  "name": "watermvp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "better-sqlite3": "^12.6.2",
+    "crypto-js": "^4.2.0",
+    "express": "^5.2.1",
+    "html-pdf-node": "^1.0.8",
+    "pdfkit": "^0.17.2",
+    "qrcode": "^1.5.4",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}

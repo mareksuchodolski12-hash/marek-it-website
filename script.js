@@ -195,13 +195,22 @@ function setupToTopButton() {
   const toTopBtn = document.getElementById('toTopBtn');
   if (!toTopBtn) return;
 
-  window.addEventListener('scroll', () => {
+  // Initialize button state
+  const updateButtonState = () => {
     const visible = window.scrollY > 500;
     toTopBtn.style.opacity = visible ? '1' : '0';
     toTopBtn.style.pointerEvents = visible ? 'auto' : 'none';
-  }, { passive: true });
+  };
 
-  toTopBtn.addEventListener('click', () => {
+  // Set initial state
+  updateButtonState();
+
+  // Update on scroll
+  window.addEventListener('scroll', updateButtonState, { passive: true });
+
+  // Handle click
+  toTopBtn.addEventListener('click', (e) => {
+    e.preventDefault();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 }

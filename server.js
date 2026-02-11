@@ -7,6 +7,7 @@ const PORT = process.env.PORT || 3001;
 
 // Middleware: JSON parser
 app.use(express.json({ limit: "200kb" }));
+app.use(express.urlencoded({ limit: "200kb", extended: true }));
 
 // Antyspam: 1 request na 3 sekundy per IP
 const lastHitByIp = new Map();
@@ -26,6 +27,63 @@ app.use((req, res, next) => {
 function cryptoRandomId() {
   return "lead_" + Math.random().toString(16).slice(2) + Date.now().toString(16);
 }
+
+// Endpoint: POST /api/lead (MUSI być PRZED static middleware!)
+app.post("/api/lead", (req, res) => {
+  const {
+    industry,
+    problem,
+    tools,
+    message,
+    contact,
+    website,
+    wantsMvp,
+    wantsAutomation,
+  } = req.body || {};
+
+  // Walidacja minimalna
+  if (!industry || !problem || !message || !contact) {
+    return res.status(400).json({ 
+      ok: false, 
+      error: "Uzupełnij: branża, problem, opis, kontakt." 
+    });
+  }
+
+  // Sanitizacja
+  const safe = (v, max = 2000) =>
+    String(v ?? "").replace(/\s+/g, " ").trim().slice(0, max);
+
+  const lead = {
+    id: cryptoRandomId(),
+    createdAt: new Date().toISOString(),
+    industry: safe(industry, 80),
+    problem: safe(problem, 120),
+    tools: safe(tools, 200),
+    message: safe(message, 2000),
+    contact: safe(contact, 120),
+    website: safe(website, 200),
+    wantsMvp: !!wantsMvp,
+    wantsAutomation: !!wantsAutomation,
+  };
+
+  // Utwórz folder data/ jeśli nie istnieje
+  const dir = path.join(process.cwd(), "data");
+  const file = path.join(dir, "leads.jsonl");
+  
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir, { recursive: true });
+  }
+
+  // Dopisz do pliku JSONL
+  fs.appendFile(file, JSON.stringify(lead) + "\n", (err) => {
+    if (err) {
+      console.error("Error writing lead:", err);
+      return res.status(500).json({ ok: false, error: "Błąd serwera. Spróbuj później." });
+    }
+    console.log(`✓ Lead saved: ${lead.id}`);
+    res.json({ ok: true });
+  });
+});
 
 // Endpoint: POST /api/lead (MUSI być PRZED static middleware!)
 app.post("/api/lead", (req, res) => {

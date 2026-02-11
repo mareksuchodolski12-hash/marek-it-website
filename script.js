@@ -360,31 +360,6 @@ function setupCTAAnimation() {
   observer.observe(ctaSection);
 }
 
-/**
- * Setup scope cards scroll animation
- */
-function setupScopeCardsAnimation() {
-  const cards = document.querySelectorAll('.scope-card');
-  if (cards.length === 0) return;
-
-  const observerOptions = {
-    threshold: 0.15,
-    rootMargin: '0px 0px -50px 0px',
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
-        observer.unobserve(entry.target);
-      }
-    });
-  }, observerOptions);
-
-  cards.forEach((card) => observer.observe(card));
-}
-
 document.addEventListener('DOMContentLoaded', () => {
   // Setup all features
   setupCounters();
@@ -398,10 +373,9 @@ document.addEventListener('DOMContentLoaded', () => {
   setupFooterYear();
   setupParallax();
 
-  // Setup contact & footer & scope
+  // Setup contact & footer
   setupSmoothScrollFooter();
   setupCTAAnimation();
-  setupScopeCardsAnimation();
 
   // Setup scroll-triggered animations
   createScrollObserver('.animate-on-scroll', 'visible');

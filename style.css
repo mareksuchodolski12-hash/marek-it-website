@@ -1535,9 +1535,13 @@ section{
 .footer-bottom {
   border-top: 1px solid rgba(255,255,255,.06);
   padding-top: 24px;
+}
+
+.footer-bottom .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 20px;
 }
 
 .footer-bottom-text {
@@ -1604,8 +1608,11 @@ section{
   }
 
   .footer-bottom {
-    flex-direction: column;
     gap: 16px;
+  }
+
+  .footer-bottom .container {
+    flex-direction: column;
     text-align: center;
   }
 

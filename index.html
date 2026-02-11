@@ -413,19 +413,52 @@
     <section class="stack" id="stack" aria-label="Stack i narzędzia">
       <div class="container">
         <div class="section-head">
-          <h2 class="section-title">Stack, który dowozi</h2>
-          <p class="section-subtitle">Dobieram narzędzia do problemu, nie odwrotnie.</p>
+          <h2 class="section-title">Precyzyjny stack. Bez gadżetów.</h2>
+          <p class="section-subtitle">Narzędzia dobierane do problemu, bezpośrednio z rzeczywistych potrzeb — bez dogmatyzmu, bez mody.</p>
         </div>
 
-        <div class="pill-grid">
-          <div class="pill">PostgreSQL</div>
-          <div class="pill">API Gateway</div>
-          <div class="pill">Webhook / Kafka</div>
-          <div class="pill">ETL Pipelines</div>
-          <div class="pill">Metabase / Mode</div>
-          <div class="pill">Make / Zapier</div>
-          <div class="pill">Slack Alerts</div>
-          <div class="pill">Monitoring</div>
+        <div class="stack-grid">
+          <!-- DATA -->
+          <div class="stack-card">
+            <div class="stack-icon">🗄️</div>
+            <h3 class="stack-category">Warstwy Danych</h3>
+            <p class="stack-list">PostgreSQL • MongoDB • Redis • Data Lake</p>
+          </div>
+
+          <!-- INTEGRATION -->
+          <div class="stack-card">
+            <div class="stack-icon">🔗</div>
+            <h3 class="stack-category">Integracje</h3>
+            <p class="stack-list">API Gateway • Webhooks • Kafka • GraphQL</p>
+          </div>
+
+          <!-- AUTOMATION -->
+          <div class="stack-card">
+            <div class="stack-icon">⚡</div>
+            <h3 class="stack-category">Automatyzacja</h3>
+            <p class="stack-list">Make • Zapier • n8n • Custom Workflows</p>
+          </div>
+
+          <!-- VISIBILITY -->
+          <div class="stack-card">
+            <div class="stack-icon">📊</div>
+            <h3 class="stack-category">Widoczność Danych</h3>
+            <p class="stack-list">Metabase • Mode Analytics • Looker • Dashboards</p>
+          </div>
+
+          <!-- INFRASTRUCTURE -->
+          <div class="stack-card">
+            <div class="stack-icon">🏗️</div>
+            <h3 class="stack-category">Infrastruktura</h3>
+            <p class="stack-list">AWS • GCP • Vercel • Docker • Kubernetes</p>
+          </div>
+
+          <!-- OBSERVABILITY -->
+          <div class="stack-card">
+            <div class="stack-icon">👁️</div>
+            <h3 class="stack-category">Obserwacja</h3>
+            <p class="stack-list">Monitoring 24/7 • Alerty • Logs • Metrics</p>
+          </div>
         </div>
       </div>
     </section>
@@ -434,16 +467,65 @@
     <section class="process" id="process" aria-label="Jak pracuję">
       <div class="container">
         <div class="section-head">
-          <h2 class="section-title">Proces: 7 dni do "aha"</h2>
-          <p class="section-subtitle">Szybko wchodzimy, szybko wykrywamy wąskie gardło, szybko dowozimy MVP.</p>
+          <h2 class="section-title">Od diagnozy do wyniku. 30 dni.</h2>
+          <p class="section-subtitle">Wchodzimy szybko. Wykrywamy problem z chirurgiczną precyzją. Dowozimy coś, co rzeczywiście działa.</p>
         </div>
 
-        <ol class="steps">
-          <li class="step"><span class="step-n">1</span><span class="step-t">Audit procesu + mapowanie danych</span><span class="step-d">Co blokuje, co jest ręczne, gdzie ginie informacja.</span></li>
-          <li class="step"><span class="step-n">2</span><span class="step-t">Propozycja architektury</span><span class="step-d">Najkrótsza droga do wyniku, bez "przerostu formy".</span></li>
-          <li class="step"><span class="step-n">3</span><span class="step-t">Szybkie MVP</span><span class="step-d">Automatyzacja / dashboard / integracja — działające, nie "kiedyś".</span></li>
-          <li class="step"><span class="step-n">4</span><span class="step-t">Stabilizacja i skalowanie</span><span class="step-d">Monitoring, alerty, dokumentacja, rozwój.</span></li>
-        </ol>
+        <div class="process-timeline">
+          <div class="timeline-step">
+            <div class="timeline-number">1</div>
+            <div class="timeline-content">
+              <h3 class="timeline-title">Diagnoza</h3>
+              <p class="timeline-description">Audit procesów, mapowanie danych, identyfikacja wąskich gardeł. Rozumiemy dokładnie co blokuje i dlaczego.</p>
+              <div class="timeline-outcome">
+                <span class="outcome-label">Rezultat:</span>
+                <span class="outcome-text">Dokument z rzeczywistymi przyczynam i proponowaną ścieżką działania</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-divider"></div>
+
+          <div class="timeline-step">
+            <div class="timeline-number">2</div>
+            <div class="timeline-content">
+              <h3 class="timeline-title">Architektura</h3>
+              <p class="timeline-description">Proponujemy system bez przerostu. Najkrótsza droga od problemu do rozwiązania. Zero gadżetów.</p>
+              <div class="timeline-outcome">
+                <span class="outcome-label">Rezultat:</span>
+                <span class="outcome-text">Schemat systemu, lista integracji, timeline wdrożenia</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-divider"></div>
+
+          <div class="timeline-step">
+            <div class="timeline-number">3</div>
+            <div class="timeline-content">
+              <h3 class="timeline-title">MVP</h3>
+              <p class="timeline-description">Szybkie wdrożenie działającego systemu. Dashboard, automatyzacja procesów, synchronizacja zespołu.</p>
+              <div class="timeline-outcome">
+                <span class="outcome-label">Rezultat:</span>
+                <span class="outcome-text">Działający system. Pierwszy „aha moment" dla Twojego zespołu</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-divider"></div>
+
+          <div class="timeline-step">
+            <div class="timeline-number">4</div>
+            <div class="timeline-content">
+              <h3 class="timeline-title">Stabilizacja</h3>
+              <p class="timeline-description">Monitoring 24/7, alerty, dokumentacja, transfer wiedzy. System gotowy do długoterminowego wzrostu.</p>
+              <div class="timeline-outcome">
+                <span class="outcome-label">Rezultat:</span>
+                <span class="outcome-text">System niezawodny, zdokumentowany, Twój zespół umie go obsługiwać</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 

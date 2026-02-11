@@ -598,34 +598,84 @@
     </section>
 
     <!-- CONTACT -->
-    <section class="contact" id="contact" aria-label="Kontakt">
-      <div class="container contact-inner glass">
-        <div class="contact-copy">
-          <h2>Chcesz, żebym to rozkminił w Twojej firmie?</h2>
-          <p class="muted">Skontaktuj się ze mną na WhatsApp — szybko i bez zamieszania.</p>
+    <section class="cta-section" id="contact" aria-label="Skontaktuj się">
+      <div class="container">
+        <div class="cta-card">
+          <div class="cta-header">
+            <h2 class="cta-title">Przyspieszmy Twój biznes razem</h2>
+            <p class="cta-subtitle">Szybka konsultacja, konkretny plan działania, wynik w 30 dni. Bez obietnic, tylko precyzja.</p>
+          </div>
 
-          <div style="margin-top: 20px; display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
-            <a href="https://wa.me/31625320367" target="_blank" rel="noopener noreferrer" class="btn btn-primary magnet">
-              WhatsApp: +31 6 2532 0367
+          <div class="cta-chips">
+            <div class="chip">
+              <span class="chip-icon">🌍</span>
+              <span>Holandia / Zdalnie</span>
+            </div>
+            <div class="chip">
+              <span class="chip-icon">⚡</span>
+              <span>MVP w 7 dni</span>
+            </div>
+            <div class="chip">
+              <span class="chip-icon">🎯</span>
+              <span>Automatyzacja • Dane • Systemy</span>
+            </div>
+          </div>
+
+          <div class="cta-actions">
+            <a href="#" id="whatsappLink" class="btn btn-cta" aria-label="Napisz na WhatsApp">
+              <span class="btn-icon">💬</span>
+              <span>WhatsApp</span>
               <span class="btn-shine" aria-hidden="true"></span>
+            </a>
+            <button id="copyPhoneBtn" class="btn btn-secondary" aria-label="Skopiuj numer telefonu">
+              <span class="btn-icon">📋</span>
+              <span>Kopiuj numer</span>
+            </button>
+            <a href="mailto:hello@mareksystem.com" class="btn btn-secondary" aria-label="Wyślij email">
+              <span class="btn-icon">✉️</span>
+              <span>Email</span>
             </a>
           </div>
 
-          <p class="muted" style="margin-top: 30px;">Naciśnij link powyżej lub wpisz numer w WhatsApp. Odpowiadam zwykle w godzinę.</p>
-        </div>
-
-        <div class="contact-box">
-          <div class="contact-item"><span>📍</span><span>Holandia / zdalnie</span></div>
-          <div class="contact-item"><span>⚙️</span><span>Automatyzacje • Dane • Systemy</span></div>
-          <div class="contact-item"><span>🕒</span><span>Start: szybkie MVP w 7 dni</span></div>
+          <p class="cta-footnote">Zwykle odpisuję w ciągu godziny. W weekend mogę odpowiedzieć z opóźnieniem.</p>
         </div>
       </div>
     </section>
 
-    <footer class="footer">
-      <div class="container footer-inner">
-        <span class="muted">© <span id="year"></span> Marek Suchodolski • Wszystkie prawa zastrzeżone</span>
-        <button class="to-top" id="toTopBtn" type="button" aria-label="Do góry">Do góry ↑</button>
+    <footer class="footer" role="contentinfo">
+      <div class="container footer-content">
+        <div class="footer-section footer-brand">
+          <div class="footer-logo">
+            <span class="logo-text">Systemy & Wynik</span>
+          </div>
+          <p class="footer-tagline">Automatyzacje • Dane • Systemy</p>
+        </div>
+
+        <nav class="footer-section footer-nav" aria-label="Nawigacja stopka">
+          <h3 class="footer-heading">Nawigacja</h3>
+          <ul class="footer-links">
+            <li><a href="#case-studies" class="footer-link">Studia</a></li>
+            <li><a href="#stack" class="footer-link">Stack</a></li>
+            <li><a href="#process" class="footer-link">Proces</a></li>
+            <li><a href="#services" class="footer-link">Usługi</a></li>
+            <li><a href="#contact" class="footer-link">Kontakt</a></li>
+          </ul>
+        </nav>
+
+        <div class="footer-section footer-legal">
+          <h3 class="footer-heading">Legal</h3>
+          <p class="footer-copyright">
+            © <span id="year"></span> Marek Suchodolski<br>
+            Wszystkie prawa zastrzeżone.
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="container">
+          <p class="footer-bottom-text">Zbudowane z precyzją dla precyzji.</p>
+          <button id="toTopBtn" class="to-top-btn" type="button" aria-label="Przejdź do góry strony">↑ Do góry</button>
+        </div>
       </div>
     </footer>
   </main>

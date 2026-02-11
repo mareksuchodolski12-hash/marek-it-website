@@ -287,7 +287,7 @@ function setupFormSubmission() {
 
       if (statusEl) {
         statusEl.className = 'form-status';
-        statusEl.textContent = 'Mam. Odpisz w 24h. Jeli zostawie telefon � oddzwoni.';
+        statusEl.textContent = 'Mam. Odpisz w 24h. Jeli zostawie telefon � oddzwoni.';
       }
       form.reset();
     } catch (error) {
@@ -304,9 +304,150 @@ function setupFormSubmission() {
   });
 }
 
-// ====================================================================
-// INITIALIZATION
-// ====================================================================
+/**
+ * Setup WhatsApp link
+ */
+function setupWhatsApp() {
+  const link = document.getElementById('whatsappLink');
+  if (!link) return;
+
+  const phone = '31625320367';
+  const text = encodeURIComponent('Cześć Marek! Chciałbym pogadać o automatyzacji i systemach dla mojego biznesu.');
+
+  // Primary: wa.me (works on most devices)
+  link.href = \https://wa.me/${phone}?text=${text}\;
+  link.setAttribute('target', '_blank');
+  link.setAttribute('rel', 'noopener noreferrer');
+
+  // Fallback for some browsers/OS
+  link.addEventListener('click', (e) => {
+    const isDesktop = !/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+    if (isDesktop && !link.href.includes('wa.me')) {
+      // Try web.whatsapp.com fallback
+      const fallback = \https://web.whatsapp.com/send?phone=${phone}&text=${text}\;
+      window.open(fallback, '_blank');
+      e.preventDefault();
+    }
+  });
+}
+
+/**
+ * Copy phone number to clipboard
+ */
+function setupCopyPhone() {
+  const btn = document.getElementById('copyPhoneBtn');
+  if (!btn) return;
+
+  btn.addEventListener('click', async () => {
+    const phone = '+31 6 2532 0367';
+
+    try {
+      await navigator.clipboard.writeText(phone);
+      showToast('Skopiowano numer telefonu');
+
+      // Visual feedback
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '<span class="btn-icon">✓</span><span>Skopiowano!</span>';
+      btn.style.background = 'rgba(0, 208, 132, 0.15)';
+      btn.style.borderColor = 'rgba(0, 208, 132, 0.4)';
+
+      setTimeout(() => {
+        btn.innerHTML = originalText;
+        btn.style.background = '';
+        btn.style.borderColor = '';
+      }, 2000);
+    } catch (err) {
+      // Fallback for older browsers
+      const input = document.createElement('textarea');
+      input.value = phone;
+      document.body.appendChild(input);
+      input.select();
+      document.execCommand('copy');
+      document.body.removeChild(input);
+      showToast('Skopiowano numer');
+    }
+  });
+}
+
+/**
+ * Show toast notification
+ */
+function showToast(message) {
+  // Remove existing toast
+  const existing = document.querySelector('.toast');
+  if (existing) existing.remove();
+
+  const toast = document.createElement('div');
+  toast.className = 'toast';
+  toast.textContent = message;
+  toast.setAttribute('role', 'status');
+  toast.setAttribute('aria-live', 'polite');
+
+  document.body.appendChild(toast);
+
+  setTimeout(() => {
+    toast.remove();
+  }, 2500);
+}
+
+/**
+ * Setup smooth scroll for footer links
+ */
+function setupSmoothScrollFooter() {
+  const footerLinks = document.querySelectorAll('.footer-link');
+
+  footerLinks.forEach((link) => {
+    const href = link.getAttribute('href');
+
+    if (href && href.startsWith('#')) {
+      link.addEventListener('click', (e) => {
+        const target = document.querySelector(href);
+
+        if (target) {
+          e.preventDefault();
+
+          const topbar = document.querySelector('.topbar');
+          const offset = topbar ? topbar.offsetHeight : 0;
+          const targetPosition = target.getBoundingClientRect().top + window.scrollY - offset - 32;
+
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth',
+          });
+        }
+      });
+    }
+  });
+}
+
+/**
+ * Setup CTA section animation
+ */
+function setupCTAAnimation() {
+  const ctaSection = document.querySelector('.cta-section');
+  if (!ctaSection) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.2,
+      rootMargin: '0px 0px -50px 0px',
+    }
+  );
+
+  observer.observe(ctaSection);
+}
+
+
 
 document.addEventListener('DOMContentLoaded', () => {
   // Setup all features
@@ -320,6 +461,12 @@ document.addEventListener('DOMContentLoaded', () => {
   setupFormSubmission();
   setupFooterYear();
   setupParallax();
+
+  // Setup contact & footer
+  setupWhatsApp();
+  setupCopyPhone();
+  setupSmoothScrollFooter();
+  setupCTAAnimation();
 
   // Setup scroll-triggered animations
   createScrollObserver('.animate-on-scroll', 'visible');
@@ -335,7 +482,7 @@ document.addEventListener('DOMContentLoaded', () => {
   animateSparkline();
   setInterval(animateSparkline, 5000);
 
-  console.log('?? Strona zaadowana');
+  console.log('🚀 Strona załadowana');
 });
 
 // Prevent FOUC

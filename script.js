@@ -305,22 +305,6 @@ function setupFormSubmission() {
 }
 
 /**
- * Setup WhatsApp link
- */
-function setupWhatsApp() {
-  const link = document.getElementById('whatsappLink');
-  if (!link) return;
-
-  const phone = '31625320367'; // without + for wa.me
-  const text = encodeURIComponent('Cześć Marek! Chciałbym pogadać o automatyzacji i systemach dla mojego biznesu.');
-
-  // Build wa.me link
-  link.href = \https://wa.me/${phone}?text=${text}\;
-  link.setAttribute('target', '_blank');
-  link.setAttribute('rel', 'noopener noreferrer');
-}
-
-/**
  * Setup smooth scroll for footer links
  */
 function setupSmoothScrollFooter() {
@@ -392,7 +376,6 @@ document.addEventListener('DOMContentLoaded', () => {
   setupParallax();
 
   // Setup contact & footer
-  setupWhatsApp();
   setupSmoothScrollFooter();
   setupCTAAnimation();
 

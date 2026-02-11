@@ -137,8 +137,16 @@ h1,h2,h3,h4,h5,h6{
 }
 
 section{
-  padding: clamp(3.25rem, 8vw, 6.5rem) 0;
+  padding: 5rem 0;
   position: relative;
+}
+
+@media (max-width: 768px) {
+  section { padding: 4rem 0; }
+}
+
+@media (max-width: 640px) {
+  section { padding: 3rem 0; }
 }
 
 .glass{
@@ -288,9 +296,10 @@ section{
 .btn:hover,
 .cta-button:hover,
 .cta-button-dark:hover{
-  transform: translateY(-1px);
-  background: rgba(255,255,255,.07);
-  border-color: rgba(255,255,255,.18);
+  transform: translateY(-2px);
+  background: rgba(255,255,255,.08);
+  border-color: rgba(255,255,255,.2);
+  box-shadow: 0 12px 40px rgba(0,0,0,.2);
 }
 
 .btn:active,
@@ -339,7 +348,7 @@ section{
    HERO
    ========================= */
 
-.hero{ padding: 64px 0 22px; }
+.hero{ padding: 6rem 0 3rem; }
 .hero-inner{
   display:grid;
   grid-template-columns: 1.15fr .85fr;
@@ -409,11 +418,12 @@ section{
   border:1px solid var(--line);
   background: rgba(255,255,255,.03);
   border-radius: 18px;
-  padding: 16px;
+  padding: 20px 18px;
   transition: all var(--transition);
   backdrop-filter: blur(10px);
   position: relative;
   overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,.15);
 }
 .kpi::before{
   content: '';
@@ -808,24 +818,24 @@ section{
    ========================= */
 
 .stack {
-  padding: 6rem 0;
+  padding: 5rem 0;
   position: relative;
 }
 
 .stack-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 24px;
-  margin-top: 48px;
+  gap: 28px;
+  margin-top: 56px;
 }
 
 .stack-card {
   border: 1px solid var(--line);
   background: rgba(255,255,255,.03);
   border-radius: 20px;
-  padding: 32px;
-  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
-  backdrop-filter: blur(12px);
+  padding: 36px 32px;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  backdrop-filter: blur(14px);
   position: relative;
   overflow: hidden;
   animation: slideUp 0.6s ease-out forwards;
@@ -845,10 +855,10 @@ section{
 }
 
 .stack-card:hover {
-  border-color: rgba(103,210,255,.5);
-  background: rgba(103,210,255,.12);
-  transform: translateY(-8px);
-  box-shadow: 0 20px 50px rgba(103,210,255,.2);
+  border-color: rgba(103,210,255,.6);
+  background: rgba(103,210,255,.14);
+  transform: translateY(-12px);
+  box-shadow: 0 24px 60px rgba(103,210,255,.25);
 }
 
 .stack-card:hover::before {
@@ -888,12 +898,12 @@ section{
    ========================= */
 
 .process {
-  padding: 6rem 0;
+  padding: 5rem 0;
   position: relative;
 }
 
 .process-timeline {
-  margin-top: 48px;
+  margin-top: 56px;
   max-width: 900px;
   margin-left: auto;
   margin-right: auto;
@@ -902,9 +912,9 @@ section{
 .timeline-step {
   display: grid;
   grid-template-columns: 120px 1fr;
-  gap: 32px;
+  gap: 40px;
   align-items: start;
-  margin-bottom: 48px;
+  margin-bottom: 56px;
   animation: slideUp 0.6s ease-out forwards;
   opacity: 0;
   transform: translateY(20px);
@@ -925,10 +935,12 @@ section{
   justify-content: center;
   font-size: 1.8rem;
   font-weight: 900;
-  background: rgba(103,210,255,.1);
+  background: rgba(103,210,255,.12);
   color: var(--accent);
   flex-shrink: 0;
   position: relative;
+  box-shadow: 0 8px 24px rgba(103,210,255,.15);
+  transition: all 0.4s ease;
 }
 
 .timeline-number::after {
@@ -953,14 +965,15 @@ section{
 }
 
 .timeline-content {
-  padding: 28px 24px;
+  padding: 32px 28px;
   border: 1px solid var(--line);
   border-radius: 16px;
   background: rgba(255,255,255,.02);
-  backdrop-filter: blur(8px);
-  transition: all 0.35s ease;
+  backdrop-filter: blur(10px);
+  transition: all 0.4s ease;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,.1);
 }
 
 .timeline-content::before {
@@ -974,9 +987,10 @@ section{
 }
 
 .timeline-step:hover .timeline-content {
-  border-color: rgba(103,210,255,.4);
-  background: rgba(103,210,255,.08);
-  transform: translateX(8px);
+  border-color: rgba(103,210,255,.5);
+  background: rgba(103,210,255,.1);
+  transform: translateX(12px);
+  box-shadow: 0 16px 40px rgba(103,210,255,.2);
 }
 
 .timeline-step:hover .timeline-content::before {
@@ -1653,8 +1667,8 @@ section{
 .scope-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
-  margin-top: 48px;
+  gap: 28px;
+  margin-top: 56px;
 }
 
 @media (min-width: 1024px) {
@@ -1668,13 +1682,14 @@ section{
   background: rgba(10,14,30,.52);
   backdrop-filter: blur(14px);
   border-radius: 24px;
-  padding: 32px;
+  padding: 36px 32px;
   transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
   position: relative;
   overflow: hidden;
   animation: slideUp 0.6s ease-out forwards;
   opacity: 0;
   transform: translateY(20px);
+  box-shadow: 0 8px 24px rgba(0,0,0,.15);
 }
 
 .scope-card::before {
@@ -1694,10 +1709,10 @@ section{
 .scope-card:nth-child(4) { animation-delay: 0.2s; }
 
 .scope-card:hover {
-  border-color: rgba(103,210,255,.5);
-  background: rgba(10,14,30,.68);
-  transform: translateY(-8px);
-  box-shadow: 0 24px 70px rgba(103,210,255,.2);
+  border-color: rgba(103,210,255,.6);
+  background: rgba(10,14,30,.72);
+  transform: translateY(-12px);
+  box-shadow: 0 28px 80px rgba(103,210,255,.25);
 }
 
 .scope-card:hover::before {

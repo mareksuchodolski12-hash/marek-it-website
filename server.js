@@ -85,16 +85,16 @@ app.post("/api/lead", (req, res) => {
 });
 
 // Serve static files (MUSI być ПОСЛЕ API endpoints!)
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname)));
 
 // Serve index.html for root path
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
+  res.sendFile(path.join(__dirname, "index.html"));
 });
 
 // Fallback: send index.html for all unknown routes (SPA support)
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
+app.use((req, res) => {
+  res.sendFile(path.join(__dirname, "index.html"));
 });
 
 // Start server
